@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+[[mods]]
+modId="waterlight"
+version="1.0.0"
+displayName="Water Light"
+logoFile="logo.png"
+authors="Charmander906"
+description='''Changes water to be deemed transparent for light levels.'''
+[[dependencies.waterlight]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.1.0,47.2.0)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.waterlight]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
