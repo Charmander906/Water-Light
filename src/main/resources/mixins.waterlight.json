@@ -1,0 +1,12 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.charmander906.waterlight.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "WaterSkylightPropagationMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

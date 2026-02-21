@@ -1,22 +1,9 @@
-buildscript {
-    repositories {
-        maven {
-            name = "SpongePowered"
-            url = "https://repo.spongepowered.org/repository/maven-public/"
-        }
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
-}
 plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
-apply plugin: 'org.spongepowered.mixin'
 version = mod_version
 group = mod_group_id
 base {
@@ -61,6 +48,11 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     maven {
+        name = "SpongePowered"
+        url = "https://repo.spongepowered.org/repository/maven-public/"
+    }
+    mavenCentral()
+    maven {
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
@@ -71,17 +63,9 @@ repositories {
 }
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
     implementation 'org.spongepowered:mixin:0.8.5'
-    annotationProcessor 'org.spongepowered:mixin:0.8.5'
-    //implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:15.20.0.116")
-    //compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:15.20.0.116")
-    //runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:15.20.0.116")
-    //implementation files('libs/dragondisc.jar')
-    //implementation files('libs/lionfish-deobf.jar')
-}
-mixin {
-    add sourceSets.main, "mixins.waterlight.refmap.json"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
